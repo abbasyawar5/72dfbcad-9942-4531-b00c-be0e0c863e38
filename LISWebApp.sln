@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LISWebApp", "LISWebApp\LISWebApp.csproj", "{78006D43-0169-4E4A-BD97-FCC5C9170CA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LISWebAPI", "LISWebAPI\LISWebAPI.csproj", "{097CB8E6-8149-445C-AA0B-6C104B585B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LISWebAPP", "LISWebAPP\LISWebAPP.csproj", "{5ECBAF77-3AF6-41D0-B751-3A8D92F74CDE}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{78006D43-0169-4E4A-BD97-FCC5C9170CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78006D43-0169-4E4A-BD97-FCC5C9170CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78006D43-0169-4E4A-BD97-FCC5C9170CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78006D43-0169-4E4A-BD97-FCC5C9170CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097CB8E6-8149-445C-AA0B-6C104B585B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097CB8E6-8149-445C-AA0B-6C104B585B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097CB8E6-8149-445C-AA0B-6C104B585B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097CB8E6-8149-445C-AA0B-6C104B585B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECBAF77-3AF6-41D0-B751-3A8D92F74CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECBAF77-3AF6-41D0-B751-3A8D92F74CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECBAF77-3AF6-41D0-B751-3A8D92F74CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECBAF77-3AF6-41D0-B751-3A8D92F74CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

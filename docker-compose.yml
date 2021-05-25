@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  liswebapp:
+    image: ${DOCKER_REGISTRY-}liswebapp
+    build:
+      context: .
+      dockerfile: LISWebAPP/Dockerfile

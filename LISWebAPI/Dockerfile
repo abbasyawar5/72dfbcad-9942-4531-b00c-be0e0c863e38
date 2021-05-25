@@ -6,16 +6,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["LISWebAPP/LISWebAPP.csproj", "LISWebAPP/"]
-RUN dotnet restore "LISWebAPP/LISWebAPP.csproj"
+COPY ["LISWebAPI/LISWebAPI.csproj", "LISWebAPI/"]
+RUN dotnet restore "LISWebAPI/LISWebAPI.csproj"
 COPY . .
-WORKDIR "/src/LISWebAPP"
-RUN dotnet build "LISWebAPP.csproj" -c Release -o /app/build
+WORKDIR "/src/LISWebAPI"
+RUN dotnet build "LISWebAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "LISWebAPP.csproj" -c Release -o /app/publish
+RUN dotnet publish "LISWebAPI.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "LISWebAPP.dll"]
+ENTRYPOINT ["dotnet", "LISWebAPI.dll"]
