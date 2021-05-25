@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LISConsoleApp": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

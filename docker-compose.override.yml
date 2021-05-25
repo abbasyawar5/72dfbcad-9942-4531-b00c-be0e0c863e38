@@ -13,3 +13,6 @@ services:
     ports:
       - "80"
 
+
+  lisconsoleapp:
+

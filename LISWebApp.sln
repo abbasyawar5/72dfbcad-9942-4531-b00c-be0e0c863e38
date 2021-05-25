@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LISWebAPP", "LISWebAPP\LISW
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LISTest", "LISTest\LISTest.csproj", "{9A4D472F-F2C0-4729-AFAA-60A0847495B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LISConsoleApp", "LISConsoleApp\LISConsoleApp.csproj", "{01525376-555C-43F2-A12B-4BAFBA07B5B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ACBDF37-8BDC-4413-893C-71B61C3F0D44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4D472F-F2C0-4729-AFAA-60A0847495B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4D472F-F2C0-4729-AFAA-60A0847495B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4D472F-F2C0-4729-AFAA-60A0847495B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4D472F-F2C0-4729-AFAA-60A0847495B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01525376-555C-43F2-A12B-4BAFBA07B5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01525376-555C-43F2-A12B-4BAFBA07B5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01525376-555C-43F2-A12B-4BAFBA07B5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01525376-555C-43F2-A12B-4BAFBA07B5B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
