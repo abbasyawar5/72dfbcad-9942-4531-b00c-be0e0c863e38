@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: LISWebAPP/Dockerfile
+
+  liswebapi:
+    image: ${DOCKER_REGISTRY-}liswebapi
+    build:
+      context: .
+      dockerfile: LISWebAPI/Dockerfile
+
