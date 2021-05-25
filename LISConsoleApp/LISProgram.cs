@@ -6,23 +6,27 @@ namespace LISConsoleApp
 {
     public class LISProgram
     {
-        public static int GetlongestSubsequenceLength(List<int> A)
+        static int max_ref;
+        public static int GetlongestSubsequenceLength(List<int> arr, int size)
         {
-            int[] dp = new int[A.Count];
-            dp[0] = 1;
-            for (int i = 1; i < A.Count; i++)
-            {
-                int max = 1;
-                for (int j = 0; j < i; j++)
-                {
-                    if (A[j] > A[i])
-                        max = Math.Max(max, dp[j] + 1);
-                }
 
-                dp[i] = max;
+            if (size == 1)
+                return 1;
+            int res, max_ending_here = 1;
+
+            for (int i = 1; i < size; i++)
+            {
+                res = GetlongestSubsequenceLength(arr, i);
+                if (arr[i - 1] < arr[size - 1]
+                    && res + 1 > max_ending_here)
+                    max_ending_here = res + 1;
             }
 
-            return dp.Max();
+            if (max_ref < max_ending_here)
+                max_ref = max_ending_here;
+
+            return max_ending_here;
+
         }
 
         public static int longestSubsequence(string inputStr) {
@@ -34,7 +38,7 @@ namespace LISConsoleApp
                 int y = int.Parse(x);
                 listoOfNumbers.Add(y);
             }
-            return GetlongestSubsequenceLength(listoOfNumbers);
+            return GetlongestSubsequenceLength(listoOfNumbers, listoOfNumbers.Count);
 
         }
         static void Main(string[] args)
