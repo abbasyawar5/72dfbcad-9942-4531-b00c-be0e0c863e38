@@ -1,12 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace LISConsoleApp
 {
     public class LISProgram
     {
+        public static List<int> ConvertStrToIntList(string inputStr)
+        {
 
+            List<string> strList = inputStr.Split(' ').ToList();
+            List<int> outputIntegerList = strList.Select(int.Parse).ToList();
+            return outputIntegerList;
+        }
+
+        public static string ConvertIntListToStr(List<int> inputList)
+        {
+            // conver the list to str but in reverse order
+            var outStr = inputList.Select(i => i.ToString(CultureInfo.InvariantCulture))
+                .Aggregate((s1, s2) => s2 + " " + s1);
+
+            return outStr;
+        }
         public static int GetCorrectPosition(List<int> outList, int n)
         {
             int left = 0, right = outList.Count - 1;
@@ -42,17 +58,18 @@ namespace LISConsoleApp
                 }
                 else
                 {
-                    // if next > current
-                    if (inputIntegerList[i] > outputIntegerList.Last())
+                    if (!outDictionary.ContainsKey(inputIntegerList[i]))
                     {
-                        outputIntegerList.Add(inputIntegerList[i]);
-                        outDictionary.Add(inputIntegerList[i], outputIntegerList[outputIntegerList.Count - 2]);
-                    }
-                    else
-                    {
-                        // if number already exist, ignore it
-                        if (!outDictionary.ContainsKey(inputIntegerList[i]))
+                        // if next > current
+                        if (inputIntegerList[i] > outputIntegerList.Last())
                         {
+                            outputIntegerList.Add(inputIntegerList[i]);
+                            outDictionary.Add(inputIntegerList[i], outputIntegerList[outputIntegerList.Count - 2]);
+                        }
+                        else
+                        {
+                            // if number already exist, ignore it
+
                             int correctPosition = GetCorrectPosition(outputIntegerList, inputIntegerList[i]);
                             outputIntegerList[correctPosition] = inputIntegerList[i];
                             if (correctPosition > 0)
@@ -66,24 +83,23 @@ namespace LISConsoleApp
 
             }
 
-
-            return null;
+            int last = outputIntegerList.Last();
+            List<int> finalList = new List<int>();
+            while (last != -991)
+            {
+                finalList.Add(last);
+                last = outDictionary[last];
+            }
+            return ConvertIntListToStr(finalList);
         }
 
-        public static List<int> ConvertStrToIntList(string inputStr)
-        {
 
-            List<string> strList = inputStr.Split(' ').ToList();
-            List<int> outputIntegerList = strList.Select(int.Parse).ToList();
-            return outputIntegerList;
-        }
         static void Main(string[] args)
         {
-            string inputStr = "6 2 4 6 1 5 9 2 6";
-
+            string inputStr = "6 1 5 9 2";
             CalculateLongestSubsequence(inputStr);
-
-            //Console.WriteLine("Length of longest subsequnce is {0}", longestSubsequence(input)); 
+            Console.WriteLine("Longest increasing subsequnce is {0}", CalculateLongestSubsequence(inputStr));
+            Console.ReadLine();
         }
     }
 }
