@@ -7,7 +7,7 @@ namespace LISConsoleApp
     public class LISProgram
     {
 
-        public static int GetCorrectPosition (List<int> outList, int n)
+        public static int GetCorrectPosition(List<int> outList, int n)
         {
             int left = 0, right = outList.Count - 1;
             while (left <= right)
@@ -42,13 +42,24 @@ namespace LISConsoleApp
                 }
                 else
                 {
+                    // if next > current
                     if (inputIntegerList[i] > outputIntegerList.Last())
                     {
                         outputIntegerList.Add(inputIntegerList[i]);
-                        outDictionary.Add(inputIntegerList[i], outputIntegerList[outputIntegerList.Count-2]);
-                    } else
+                        outDictionary.Add(inputIntegerList[i], outputIntegerList[outputIntegerList.Count - 2]);
+                    }
+                    else
                     {
-                        int correctPosition = GetCorrectPosition(inputIntegerList, inputIntegerList[i]);
+                        // if number already exist, ignore it
+                        if (!outDictionary.ContainsKey(inputIntegerList[i]))
+                        {
+                            int correctPosition = GetCorrectPosition(outputIntegerList, inputIntegerList[i]);
+                            outputIntegerList[correctPosition] = inputIntegerList[i];
+                            if (correctPosition > 0)
+                                outDictionary.Add(inputIntegerList[i], outputIntegerList[correctPosition - 1]);
+                            else
+                                outDictionary.Add(inputIntegerList[i], -991);
+                        }
                     }
 
                 }
@@ -68,7 +79,7 @@ namespace LISConsoleApp
         }
         static void Main(string[] args)
         {
-            string inputStr = "6 2 4 6 1 5 9 2";
+            string inputStr = "6 2 4 6 1 5 9 2 6";
 
             CalculateLongestSubsequence(inputStr);
 
