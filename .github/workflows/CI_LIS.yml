@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet LISWebApp
+      run: dotnet
     - name: Build
-      run: dotnet build LISWebApp
+      run: dotnet build
     - name: Test
-      run: dotnet test LISWebApp
+      run: dotnet test
