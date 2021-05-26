@@ -10,7 +10,7 @@ namespace LISTest
         public void Test1()
         {
             string inputStr = "6 2 4 6 1 5 9 2";
-            Assert.Equal(3, LISProgram.longestSubsequence(inputStr));
+            Assert.Equal("2 4 6 9", LISProgram.CalculateLongestSubsequence(inputStr));
         }
     }
 }

@@ -6,45 +6,73 @@ namespace LISConsoleApp
 {
     public class LISProgram
     {
-        static int max_ref;
-        public static int GetlongestSubsequenceLength(List<int> arr, int size)
+
+        public static int GetCorrectPosition (List<int> outList, int n)
         {
-
-            if (size == 1)
-                return 1;
-            int res, max_ending_here = 1;
-
-            for (int i = 1; i < size; i++)
+            int left = 0, right = outList.Count - 1;
+            while (left <= right)
             {
-                res = GetlongestSubsequenceLength(arr, i);
-                if (arr[i - 1] < arr[size - 1]
-                    && res + 1 > max_ending_here)
-                    max_ending_here = res + 1;
+                int middle = (left + right) / 2;
+
+                if (outList[middle] < n)
+                    left = middle + 1;
+                else
+                    right = middle - 1;
             }
-
-            if (max_ref < max_ending_here)
-                max_ref = max_ending_here;
-
-            return max_ending_here;
-
+            return left;
         }
 
-        public static int longestSubsequence(string inputStr) {
+        public static string CalculateLongestSubsequence(string inputStr)
+        {
 
-            List<string> listStrLineElements = inputStr.Split(' ').ToList();
-            List<int> listoOfNumbers = new List<int>();
-            foreach (string x in listStrLineElements)
+            //Converting input string to integer list
+            List<int> inputIntegerList = ConvertStrToIntList(inputStr);
+
+            //calculating subsequence
+            List<int> outputIntegerList = new List<int>();
+            Dictionary<int, int> outDictionary = new Dictionary<int, int>();
+
+            for (int i = 0; i < inputIntegerList.Count; i++)
             {
-                int y = int.Parse(x);
-                listoOfNumbers.Add(y);
-            }
-            return GetlongestSubsequenceLength(listoOfNumbers, listoOfNumbers.Count);
+                //base case
+                if (outputIntegerList.Count == 0)
+                {
+                    outputIntegerList.Add(inputIntegerList[i]);
+                    outDictionary.Add(inputIntegerList[i], -991);
+                }
+                else
+                {
+                    if (inputIntegerList[i] > outputIntegerList.Last())
+                    {
+                        outputIntegerList.Add(inputIntegerList[i]);
+                        outDictionary.Add(inputIntegerList[i], outputIntegerList[outputIntegerList.Count-2]);
+                    } else
+                    {
+                        int correctPosition = GetCorrectPosition(inputIntegerList, inputIntegerList[i]);
+                    }
 
+                }
+
+            }
+
+
+            return null;
+        }
+
+        public static List<int> ConvertStrToIntList(string inputStr)
+        {
+
+            List<string> strList = inputStr.Split(' ').ToList();
+            List<int> outputIntegerList = strList.Select(int.Parse).ToList();
+            return outputIntegerList;
         }
         static void Main(string[] args)
         {
-            string input = "6 2 4 6 1 5 9 2";
-            Console.WriteLine("Length of longest subsequnce is {0}", longestSubsequence(input)); 
+            string inputStr = "6 2 4 6 1 5 9 2";
+
+            CalculateLongestSubsequence(inputStr);
+
+            //Console.WriteLine("Length of longest subsequnce is {0}", longestSubsequence(input)); 
         }
     }
 }
